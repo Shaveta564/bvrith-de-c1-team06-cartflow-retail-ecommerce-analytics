@@ -1,4 +1,5 @@
-# [PROJECT TITLE]
+#CartFlow: Retail & E-Commerce Analytics
+ 
 
 > **Student note:** Start with `00_START_HERE.md` and `00_TEMPLATE_INDEX.md`. The placeholder files inside this repo are the templates.
 
@@ -6,7 +7,7 @@
 **Program:** ZENAIZ x BVRIT Hyderabad Data Engineering Internship Program  
 **Track:** Data Engineering  
 **Duration:** 12 Weeks  
-**Team:** [Team Number / Team Name]  
+**Team:** [Team 06 / ]  
 **Students:** [Student 1], [Student 2], [Student 3]  
 **AI Teammate:** Used responsibly for explanation, debugging, review, and documentation support.
 
