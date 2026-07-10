@@ -1,4 +1,4 @@
-#CartFlow: Retail & E-Commerce Analytics
+<img width="341" height="33" alt="image" src="https://github.com/user-attachments/assets/6b928f20-4fb8-4bea-ae25-d77e2adaa9da" />CartFlow: Retail & E-Commerce Analytics
  
 
 > **Student note:** Start with `00_START_HERE.md` and `00_TEMPLATE_INDEX.md`. The placeholder files inside this repo are the templates.
@@ -7,8 +7,8 @@
 **Program:** ZENAIZ x BVRIT Hyderabad Data Engineering Internship Program  
 **Track:** Data Engineering  
 **Duration:** 12 Weeks  
-**Team:** [Team 06 / ]  
-**Students:** [Student 1], [Student 2], [Student 3]  
+**Team:** [Team 06 / CartFlow: Retail & E-Commerce Analytics]  
+**Students:** [Arvapalli Shaveta], [Nandini Boddu], [Chinnapapolla Manasa Reddy]  
 **AI Teammate:** Used responsibly for explanation, debugging, review, and documentation support.
 
 ---
