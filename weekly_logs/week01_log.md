@@ -1,4 +1,4 @@
-# Week 01 Log — [Sprint Name]
+# Week 01 Log — Project Setup & Repository Initialization
 
 **Week:** 1  
 **Date range:** 10 July 2026 – 16 July 2026 
@@ -29,6 +29,7 @@ The goal of this sprint was to understand the project requirements, set up the G
 
 - Decided to use the provided GitHub template as the project repository.
 - Decided to follow the 12-week roadmap provided by the internship.
+- Decided to maintain weekly logs and documentation updates in GitHub for mentor review.
 
 ---
 
@@ -36,7 +37,7 @@ The goal of this sprint was to understand the project requirements, set up the G
 
 | Blocker | Impact | Help Needed |
 |---|---|---|
-| No blockers during Week 1 | None | None |
+|No major blockers encountered during Week 1| None | None |
 
 ---
 
@@ -45,6 +46,7 @@ The goal of this sprint was to understand the project requirements, set up the G
 - Updated README.md
 - Completed problem_charter.md
 - Created Week 01 log
+- Uploaded repository setup screenshots
 
 
 ---
@@ -62,5 +64,7 @@ The goal of this sprint was to understand the project requirements, set up the G
 
 ## 7. Next Week Preparation
 
-- Review the project datasets and assumptions.
-- Begin preparing the data dictionary and sample datasets for the project.
+- Review the project datasets and business requirements.
+- Prepare the data dictionary and sample datasets.
+- Explore the datasets in Databricks.
+- Plan Bronze layer data ingestion.
