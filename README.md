@@ -7,7 +7,7 @@ CartFlow: Retail & E-Commerce Analytics
 **Program:** ZENAIZ x BVRIT Hyderabad Data Engineering Internship Program  
 **Track:** Data Engineering  
 **Duration:** 12 Weeks  
-**Team:** Team 06 / CartFlow: Retail & E-Commerce Analytics  
+**Team:** Team 06 
 **Students:** Arvapalli Shaveta,Nandini Boddu,Chinnapapolla Manasa Reddy  
 **AI Teammate:** Used responsibly for explanation, debugging, review, and documentation support.
 
