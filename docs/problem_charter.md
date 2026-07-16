@@ -1,69 +1,59 @@
 # Problem Charter
 
 **Week:** 1  
-**Owner(s):** [Student names]  
-**Project:** [Project title]
+**Owner(s):** Arvapalli Shaveta,Nandini Boddu,Chinnapapolla Manasa Reddy  
+**Project:**  CartFlow: Retail & E-Commerce Analytics
 
 ---
 
 ## 1. Problem Context
 
-Explain the domain in simple language.
+Retail and e-commerce businesses generate large amounts of data every day, including customer information, product details, orders, inventory, and sales transactions. This data is often stored in multiple raw files and may contain missing values, duplicate records, inconsistent formats, and errors.
 
-Prompts:
+Raw data cannot be used directly for business analysis because it is unreliable and unstructured. Therefore, it must be cleaned, validated, standardized, and transformed into high-quality datasets.
 
-- What real-world process or operation does this project represent?
-- What kinds of data are generated?
-- Why is raw data not enough?
-- Who would use the final dashboard or metrics?
+The final dashboards and metrics will help business managers, analysts, and decision-makers monitor sales performance, customer trends, inventory status, and overall business growth.
 
 ---
 
 ## 2. Engineering Problem
 
-Write the data engineering problem clearly.
-
-Example format:
-
-> The project must convert multiple raw source files into trusted Bronze, Silver, Data Quality, Gold, and dashboard-ready outputs using Databricks and Power BI.
+The project aims to transform multiple raw retail and e-commerce datasets into reliable Bronze, Silver, Data Quality, and Gold layers using Databricks. The processed Gold datasets will be used to build Power BI dashboards and simulate streaming events, enabling accurate analytics and business insights.
 
 ---
 
 ## 3. Users / Stakeholders
 
 | User / Stakeholder | What they need from the data |
-|---|---|
-| [Example: Operations Head] | [Example: View daily demand and service issues] |
-| [Example: Analyst] | [Example: Compare trends and investigate failures] |
+|--------------------|------------------------------|
+| Business Manager | Monitor sales performance, revenue, and customer trends |
+| Data Analyst | Analyze sales patterns, customer behavior, and product performance |
+| Inventory Manager | Track inventory levels and identify stock shortages |
+| Management Team | Make data-driven business decisions using dashboards and reports |
 
 ---
 
 ## 4. Scope Inclusions
 
-List what the team will build.
-
-- Raw source files
-- Bronze ingestion
-- Silver standardization
-- Data quality checks
-- Gold metrics
-- Power BI dashboard
-- Streaming simulation
-- GitHub evidence
+- Raw retail and e-commerce datasets
+- Bronze data ingestion
+- Silver data standardization
+- Data quality validation
+- Gold metric generation
+- Power BI dashboard creation
+- Streaming simulation using Databricks
+- GitHub documentation and weekly evidence
 
 ---
 
 ## 5. Scope Exclusions
 
-List what the team will not build.
-
-Examples:
-
-- No production application
-- No real customer data
-- No payment gateway integration
-- No copied internet project submission
-- No fake screenshots or unexplained AI-generated work
+- Production deployment
+- Real customer or confidential business data
+- Payment gateway integration
+- Live e-commerce website development
+- Copied internet projects
+- Fake screenshots or unexplained AI-generated work
 
 ---
 
@@ -71,7 +61,8 @@ Examples:
 
 By the end of 12 weeks, the project is successful if:
 
-- The pipeline can be explained end to end.
-- The team can show Bronze, Silver, DQ, Gold, dashboard, and streaming evidence.
-- All three students can explain the full project at a high level.
-- GitHub contains weekly evidence and final submission files.
+- The complete data pipeline from Raw to Gold can be explained clearly.
+- Bronze, Silver, Data Quality, Gold, dashboard, and streaming outputs are successfully implemented.
+- Interactive Power BI dashboards provide meaningful business insights.
+- All team members can explain the project and their contributions.
+- GitHub contains complete documentation, weekly logs, screenshots, notebooks, and the final submission.
