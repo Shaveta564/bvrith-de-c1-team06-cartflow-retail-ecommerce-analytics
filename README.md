@@ -1,4 +1,4 @@
-<img width="341" height="33" alt="image" src="https://github.com/user-attachments/assets/6b928f20-4fb8-4bea-ae25-d77e2adaa9da" />CartFlow: Retail & E-Commerce Analytics
+CartFlow: Retail & E-Commerce Analytics
  
 
 > **Student note:** Start with `00_START_HERE.md` and `00_TEMPLATE_INDEX.md`. The placeholder files inside this repo are the templates.
@@ -7,24 +7,20 @@
 **Program:** ZENAIZ x BVRIT Hyderabad Data Engineering Internship Program  
 **Track:** Data Engineering  
 **Duration:** 12 Weeks  
-**Team:** [Team 06 / CartFlow: Retail & E-Commerce Analytics]  
-**Students:** [Arvapalli Shaveta], [Nandini Boddu], [Chinnapapolla Manasa Reddy]  
+**Team:** Team 06 / CartFlow: Retail & E-Commerce Analytics  
+**Students:** Arvapalli Shaveta,Nandini Boddu,Chinnapapolla Manasa Reddy  
 **AI Teammate:** Used responsibly for explanation, debugging, review, and documentation support.
 
 ---
 
 ## 1. Project Summary
+**Domain:** Retail & E-Commerce Analytics
 
-Write 5–8 lines explaining the assigned project.
+**Core engineering problem:** Retail businesses generate large volumes of transaction, customer, product, and order data. This project builds a reliable data engineering pipeline that cleans, validates, and transforms raw retail data into business-ready insights.
 
-Example structure:
+**Main pipeline:** Raw Data → Bronze → Silver → Data Quality Checks → Gold Tables → Power BI Dashboard → Streaming Simulation
 
-- **Domain:** [Urban Mobility / IPL Matchday / Weather / etc.]
-- **Core engineering problem:** [What raw data needs to become trusted insight?]
-- **Main pipeline:** Raw Sources → Bronze → Silver → Data Quality → Gold → Power BI → Streaming Simulation
-- **Final outcome:** GitHub repo, Databricks notebooks, Gold outputs, Power BI dashboard, streaming simulation, final demo.
-
----
+**Final outcome:** A complete GitHub repository containing Databricks notebooks, Bronze/Silver/Gold datasets, Power BI dashboard, streaming simulation, documentation, and weekly progress logs.
 
 ## 2. Tools Used
 
