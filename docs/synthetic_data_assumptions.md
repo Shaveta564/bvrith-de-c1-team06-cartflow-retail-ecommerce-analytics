@@ -1,51 +1,54 @@
 # Synthetic Data Assumptions
 
 **Week:** 2  
-**Purpose:** Document how educational data is created.
+**Purpose:** Document how synthetic data is created for the CartFlow project.
 
 ---
 
 ## 1. Synthetic Data Boundary
 
-This project uses synthetic educational data only. It must not be presented as real company, customer, citizen, player, patient, government, or platform data.
-This project uses synthetic educational e-commerce/order processing data created for learning purposes only. The data does not represent any real company, customer, employee, merchant, government agency, or online platform. All names, IDs, transactions, and events are fictional and are intended solely for practicing data engineering concepts.
+This project uses synthetic educational e-commerce data only. It must not be presented as real company, customer, seller, employee, merchant, government, or online marketplace data.
+
+The dataset is generated only for learning data engineering concepts such as data ingestion, transformation, data quality validation, streaming, and analytics. All customer IDs, seller IDs, products, payments, reviews, and events are fictional.
 
 ---
 
 ## 2. Domain Assumptions
 
-| Area              | Assumption                                                                           |
-| ----------------- | ------------------------------------------------------------------------------------ |
-| Geography / Scope | India (multiple cities and regions)                                                  |
-| Time Period       | January 2026 – March 2026                                                            |
-| Source Systems    | Order Management System, Customer Management System, Payment System, Delivery System |
-| Event Types       | Order Created, Payment Completed, Order Shipped, Order Delivered, Order Cancelled    |
-| Reference Data    | Products, Categories, Customers, Delivery Zones, Payment Methods                     |
-
+| Area | Assumption |
+|------|------------|
+| Geography / Scope | India (multiple states and cities) |
+| Time Period | January 2026 – March 2026 |
+| Business Domain | Retail & E-Commerce Marketplace |
+| Source Systems | Order Management System, Seller Management System, Payment System, Customer Review System |
+| Event Types | Order Created, Order Approved, Order Shipped, Order Delivered, Order Cancelled, Order Returned |
+| Reference Data | Sellers, Product Categories, Payment Methods |
 
 ---
 
 ## 3. Data Volume Assumptions
 
-| File                | Approximate Rows | Reason                           |
-| ------------------- | ---------------: | -------------------------------- |
-| `orders.csv`        |          100,000 | Simulates customer orders        |
-| `customers.csv`     |           20,000 | Customer master data             |
-| `products.csv`      |            5,000 | Product reference information    |
-| `order_events.json` |          300,000 | Simulates order lifecycle events |
-
+| File | Approximate Rows | Reason |
+|------|-----------------:|--------|
+| `orders.csv` | 35,000 | Simulates customer orders |
+| `order_items.parquet` | 120,000 | Simulates multiple products per order |
+| `sellers.json` | 1,500 | Seller reference data |
+| `payments.csv` | 40,000 | Payment transactions |
+| `reviews.csv` | 30,000 | Customer review records |
+| `order_status_event.json` | 150,000 | Simulated streaming order status events |
 
 ---
 
 ## 4. Controlled Data Quality Issues
-| Issue Type                   | Approx. Share | Why Include It                 |
-| ---------------------------- | ------------: | ------------------------------ |
-| Duplicate IDs                |     0.2%–0.5% | Tests uniqueness validation    |
-| Missing values               |         1%–3% | Tests completeness rules       |
-| Invalid reference keys       |       0.5%–1% | Tests referential integrity    |
-| Negative / impossible values |     0.1%–0.5% | Tests range validation         |
-| Timestamp inconsistencies    |     0.1%–0.3% | Tests chronological validation |
 
+| Issue Type | Approx. Share | Why Include It |
+|------------|--------------:|----------------|
+| Duplicate Order IDs | 0.2%–0.5% | Test duplicate detection |
+| Missing Values | 1%–3% | Test completeness checks |
+| Invalid Foreign Keys | 0.5%–1% | Test referential integrity |
+| Payment Amount Mismatch | 0.5%–1% | Test payment validation |
+| Invalid Delivery Dates | 0.1%–0.3% | Test chronological validation |
+| Conflicting Order Status | 0.2%–0.5% | Test business rule validation |
 
 ---
 
@@ -53,11 +56,11 @@ This project uses synthetic educational e-commerce/order processing data created
 
 Before using the generated data, the team should verify that:
 
-Row counts are within the expected range.
-Primary key fields are present and unique.
-Date and timestamp values follow realistic business sequences.
-Numeric fields (quantity, amount, price, etc.) contain reasonable values.
-Controlled data quality defects are present but limited.
-Source files contain different formats that require standardization during ETL.
-Foreign key relationships between orders, customers, products, and events are valid.
-The dataset is suitable for Bronze, Silver, and Gold layer processing in Databricks.
+- Row counts are within the expected range.
+- Primary key fields are unique and not null.
+- Foreign key relationships are valid between orders, order items, sellers, payments, and reviews.
+- Date and timestamp values follow realistic business sequences.
+- Payment values are reasonable and correspond to order values.
+- Controlled data quality issues are intentionally present but limited.
+- Source files are available in CSV, Parquet, and JSON formats for ETL processing.
+- The dataset is suitable for Bronze, Silver, Gold, and Streaming pipeline implementation in Databricks.
