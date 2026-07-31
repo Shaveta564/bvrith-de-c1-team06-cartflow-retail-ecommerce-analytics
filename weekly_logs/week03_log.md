@@ -18,11 +18,11 @@ The goal of this sprint was to explore the CartFlow source data, understand the 
 | Task | Owner | Status | Evidence |
 |---|---|---|---|
 | Uploaded CartFlow source files to Databricks Volume | Pavan | Done | week03_volume_and_source.png |
-| Created Spark DataFrames and SQL Views | Pavan | Done | Notebook |
-| Inspected schemas and table contents | Pavan | Done | week03_schema.png |
-| Executed SQL exploration queries | Pavan | Done | week03_sql_output.png |
-| Verified source files and Volume path | Pavan | Done | week-3_assigined volume path.png |
-| Explored source data and relationships | Pavan | Done | week03_event_locations.png |
+| Created Spark DataFrames and SQL Views | Manasa | Done | Notebook |
+| Inspected schemas and table contents | Shaveta | Done | week03_schema.png |
+| Executed SQL exploration queries | Manasa | Done | week03_sql_output.png |
+| Verified source files and Volume path | Nandini | Done | week-3_assigined volume path.png |
+| Explored source data and relationships | Shaveta | Done | week03_event_locations.png |
 
 ---
 
