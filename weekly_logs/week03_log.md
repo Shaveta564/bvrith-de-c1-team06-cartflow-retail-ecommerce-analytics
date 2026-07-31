@@ -1,7 +1,7 @@
 # Week 03 Log — CartFlow Data Exploration
 
 **Week:** 3  
-**Date range:** 28 July 2026 – 3 August 2026  
+**Date range:** 24 July 2026 – 30 July 2026  
 **Team:** Individual  
 **Project:** CartFlow – Retail & E-commerce Analytics
 
