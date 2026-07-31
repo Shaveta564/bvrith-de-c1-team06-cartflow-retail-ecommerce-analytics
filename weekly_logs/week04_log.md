@@ -1,7 +1,7 @@
 # Week 04 Log — CartFlow Bronze Ingestion
 **Week:** 4  
-**Date range:** [Add dates]  
-**Team:** [Team name / number]  
+**Date range:** [31-07-2026 - 05-08-2026]  
+**Team:** [P06-Cartflow / P06]  
 **Project:** CartFlow (Project P06)
 ---
 ## 1. Sprint Goal
