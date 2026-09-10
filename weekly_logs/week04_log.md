@@ -9,21 +9,21 @@
 
 ## 1. Sprint Goal
 
-The goal of Week 4 was to ingest the five approved CartFlow batch source datasets from the Databricks Volume into persistent Bronze Delta tables. The Bronze layer preserves the source data while adding technical metadata and lineage information required for traceability, reconciliation, and controlled reruns.
+The goal of Week 4 was to ingest the five approved CartFlow batch source datasets from the Databricks Volume into persistent Bronze Delta tables. The Bronze layer preserves source business values while adding technical metadata and lineage information required for traceability, reconciliation, and controlled reruns.
 
 ---
 
 ## 2. Work Completed
 
-| Task | Status | Evidence |
-|---|---|---|
-| Confirmed access to the approved CartFlow source files in the Databricks Volume | Done | `week04_01_source_inventory.png` |
-| Created source views for orders, payments, reviews, sellers and order items | Done | Notebook |
-| Applied appropriate source-format handling for CSV, JSON and Parquet files | Done | Notebook |
-| Added Bronze ingestion metadata and record-hash fields | Done | `week04_02_bronze_metadata.png` |
-| Created persistent Bronze Delta tables for all five approved sources | Done | `week04_03_bronze_tables.png` |
-| Reconciled source record counts with Bronze record counts | Done | `week04_04_reconciliation.png` |
-| Verified controlled rerun and Delta table history | Done | `week04_05_rerun_history.png` |
+| Task | Owner | Status | Evidence |
+|---|---|---|---|
+| Confirmed access to the approved CartFlow source files in the Databricks Volume | Shaveta | Done | `week04_01_source_inventory.png` |
+| Created source views for orders, payments, reviews, sellers and order items | Nandini | Done | Notebook |
+| Applied appropriate source-format handling for CSV, JSON and Parquet files | Manasa | Done | Notebook |
+| Added Bronze ingestion metadata and record-hash fields | Shaveta | Done | `week04_02_bronze_metadata.png` |
+| Created persistent Bronze Delta tables for all five approved sources | Nandini | Done | `week04_03_bronze_tables.png` |
+| Reconciled source record counts with Bronze record counts | Manasa | Done | `week04_04_reconciliation.png` |
+| Verified controlled rerun and Delta table history | Shaveta | Done | `week04_05_rerun_history.png` |
 
 ---
 
@@ -71,10 +71,10 @@ The goal of Week 4 was to ingest the five approved CartFlow batch source dataset
 
 | Question | Response |
 |---|---|
-| **Where AI helped** | AI was used to explain Bronze ingestion patterns, source-format handling, metadata, Delta tables, reconciliation, record hashing, and rerun validation. |
-| **What we changed after AI suggestion** | Updated the source paths, table names, schema handling, metadata fields, and SQL statements to match the CartFlow project requirements. |
-| **What we verified manually** | Reviewed the source files, schemas, Bronze table definitions, metadata columns, reconciliation queries, and rerun/Delta history evidence in the Databricks workspace. |
-| **What we can explain without AI** | We can explain why the Bronze layer preserves raw business values, the purpose of ingestion metadata and record hashes, how source-to-Bronze reconciliation works, and how a controlled rerun is validated. |
+| Where AI helped | AI was used to explain Bronze ingestion patterns, source-format handling, metadata, Delta tables, reconciliation, record hashing, and rerun validation. |
+| What we changed after AI suggestion | Updated the source paths, table names, schema handling, metadata fields, and SQL statements to match the CartFlow project requirements. |
+| What we verified manually | Reviewed the source files, schemas, Bronze table definitions, metadata columns, reconciliation queries, and rerun/Delta history evidence in Databricks. |
+| What we can explain without AI | We can explain why the Bronze layer preserves raw business values, the purpose of ingestion metadata and record hashes, how source-to-Bronze reconciliation works, and how a controlled rerun is validated. |
 
 ---
 
@@ -82,5 +82,5 @@ The goal of Week 4 was to ingest the five approved CartFlow batch source dataset
 
 - Use the completed Bronze Delta tables as the inputs for Week 5.
 - Apply approved type conversions and standardization rules in the Silver layer.
-- Preserve source record identifiers and ingestion lineage during Silver transformations.
+- Preserve source record identifiers and Bronze ingestion lineage during Silver transformations.
 - Validate Silver counts, grain, keys and transformation results.
