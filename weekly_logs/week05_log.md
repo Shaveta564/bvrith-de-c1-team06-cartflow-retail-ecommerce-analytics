@@ -15,16 +15,16 @@ The goal of Week 5 was to transform the completed Bronze Delta tables into typed
 
 ## 2. Work Completed
 
-| Task | Status | Evidence |
-|---|---|---|
-| Read the approved Bronze Delta tables as Week 5 inputs | Done | `week05_01_bronze_readiness.png` |
-| Applied safe type conversions for dates, timestamps and numeric fields | Done | Notebook |
-| Preserved parse failures during type conversion | Done | Notebook |
-| Standardized approved status, category, seller, payment and segment domains | Done | `week05_02_standardization.png` |
-| Created approved derived fields such as `item_total`, `freight_share`, `delivery_days`, `delay_days` and `delivery_band` where inputs were valid | Done | `week05_03_derived_fields.png` |
-| Preserved `source_record_id` and ingestion lineage fields | Done | `week05_04_lineage_validation.png` |
-| Validated Silver Candidate counts, grain, keys and reconciliation | Done | `week05_05_silver_validation.png` |
-| Verified repeat-run behaviour and Silver table stability | Done | Notebook |
+| Task | Owner | Status | Evidence |
+|---|---|---|---|
+| Read and verified the Bronze Delta tables as Week 5 inputs | Shaveta | Done | `week05_01_bronze_readiness.png` |
+| Applied safe type conversions for dates, timestamps and numeric fields | Nandini | Done | Notebook |
+| Preserved parse failures during type conversion | Manasa | Done | Notebook |
+| Standardized approved status, category, seller, payment and segment domains | Shaveta | Done | `week05_02_standardization.png` |
+| Created approved derived fields where required inputs were valid | Nandini | Done | `week05_03_derived_fields.png` |
+| Preserved `source_record_id` and ingestion lineage fields | Manasa | Done | `week05_04_lineage_validation.png` |
+| Validated Silver Candidate counts, grain, keys and reconciliation | Shaveta | Done | `week05_05_silver_validation.png` |
+| Verified repeat-run behaviour and Silver table stability | Nandini | Done | Notebook |
 
 ---
 
@@ -45,7 +45,7 @@ The goal of Week 5 was to transform the completed Bronze Delta tables into typed
 | Blocker / Risk | Impact | Resolution / Help Needed |
 |---|---|---|
 | Invalid or unparseable source values during type conversion | Can affect downstream calculations and validation | Preserved conversion failures for review instead of silently discarding them |
-| Some derived metrics depend on valid source timestamps and numeric values | Invalid inputs can produce unreliable derived values | Derived fields were calculated only where the required inputs were valid |
+| Derived metrics depend on valid source timestamps and numeric values | Invalid inputs can produce unreliable derived values | Calculated derived fields only where required inputs were valid |
 
 ---
 
@@ -75,7 +75,7 @@ The goal of Week 5 was to transform the completed Bronze Delta tables into typed
 |---|---|
 | Where AI helped | AI was used to explain safe type casting, timestamp conversion, domain standardization, derived-field logic, lineage preservation and Silver validation approaches. |
 | What we changed after AI suggestion | Updated the transformation logic, table names, field mappings and validation queries to match the CartFlow Bronze schema and approved Silver requirements. |
-| What we verified manually | Reviewed Bronze inputs, transformed schemas, data types, standardized values, derived fields, source lineage, record counts, grain and validation results in the Databricks workspace. |
+| What we verified manually | Reviewed Bronze inputs, transformed schemas, data types, standardized values, derived fields, source lineage, record counts, grain and validation results in Databricks. |
 | What we can explain without AI | We can explain why Silver transformations are applied after Bronze ingestion, how safe casting preserves conversion failures, why domains are standardized, how derived fields are calculated, and why lineage must be retained. |
 
 ---
