@@ -1,77 +1,86 @@
 # Week 04 Log — CartFlow Bronze Ingestion
 
 **Week:** 4  
-**Date range:** 31-07-2026 – 06-08-2026  
+**Date range:** 31 July 2026 – 06 August 2026  
 **Team:** P06 – CartFlow  
-**Project:** CartFlow (Project P06)
+**Project:** CartFlow – Retail & E-commerce Analytics
 
 ---
 
-# 1. Sprint Goal
+## 1. Sprint Goal
 
-Ingest all five approved CartFlow batch sources (`orders`, `payments`, `reviews`, `sellers`, and `order_items`) from the Databricks Volume into persistent Bronze Delta tables following the Week 4 Source-to-Bronze architecture. Ensure every Bronze table contains technical metadata, supports reconciliation, and can be safely re-run without creating duplicate records.
-
----
-
-# 2. Work Completed
-
-| Task | Owner | Status | Evidence |
-|------|-------|--------|----------|
-| Confirmed Volume access at `/Volumes/cartflow-06/default/cartflow-p06/` | Shaveta |  Done | Notebook Part 1 (`%fs ls`) |
-| Built `orders_source` view (CSV, STRING schema, permissive mode) | Manasa |  Done | Notebook Part 3 |
-| Built `payments_source` view (CSV) | Nandini |  Done | Notebook Part 5 |
-| Built `reviews_source` view (CSV) | Shaveta |  Done | Notebook Part 6 |
-| Built `sellers_source` view (JSON) | Manasa |  Done | Notebook Part 7 |
-| Built `order_items_source` view (Parquet, native schema) | Nandini |  Done | Notebook Part 4 |
-| Added Bronze metadata columns (`_source_file_name`, `_source_file_path`, `_ingested_at`, `_ingestion_run_id`, `_schema_version`, `_record_hash`, `_rescued_payload`) | Shaveta |  Done | Notebook Parts 3–7 |
-| Created Bronze Delta tables for all five datasets | Manasa |  Done | Catalog Explorer |
-| Validated source vs Bronze row counts | Nandini |  Done | Notebook Part 8 |
-| Verified repeat execution using `CREATE OR REPLACE TABLE` and `DESCRIBE HISTORY` | Shaveta |  Done | Notebook Part 9 |
+The goal of Week 4 was to ingest the five approved CartFlow batch source datasets from the Databricks Volume into persistent Bronze Delta tables. The Bronze layer preserves the source data while adding technical metadata and lineage information required for traceability, reconciliation, and controlled reruns.
 
 ---
 
-# 3. Key Decisions
+## 2. Work Completed
 
-- Used `CREATE OR REPLACE TABLE ... USING DELTA` for all Bronze tables to support controlled full refreshes and prevent duplicate records during notebook reruns.
-- Maintained one Bronze Delta table per source dataset to preserve source lineage and simplify reconciliation.
-- Loaded the Parquet dataset (`order_items`) using its native schema because Parquet is self-describing, while CSV and JSON files required explicit ingestion handling.
-- Added consistent ingestion metadata and record hashes to every Bronze table to improve traceability, auditing, and future incremental processing.
-
----
-
-# 4. Blockers / Risks
-
-| Blocker | Impact | Help Needed |
-|----------|--------|-------------|
-| No major blockers encountered | Bronze ingestion completed successfully | None |
+| Task | Status | Evidence |
+|---|---|---|
+| Confirmed access to the approved CartFlow source files in the Databricks Volume | Done | `week04_01_source_inventory.png` |
+| Created source views for orders, payments, reviews, sellers and order items | Done | Notebook |
+| Applied appropriate source-format handling for CSV, JSON and Parquet files | Done | Notebook |
+| Added Bronze ingestion metadata and record-hash fields | Done | `week04_02_bronze_metadata.png` |
+| Created persistent Bronze Delta tables for all five approved sources | Done | `week04_03_bronze_tables.png` |
+| Reconciled source record counts with Bronze record counts | Done | `week04_04_reconciliation.png` |
+| Verified controlled rerun and Delta table history | Done | `week04_05_rerun_history.png` |
 
 ---
 
-# 5. Evidence Added to GitHub
+## 3. Key Decisions
 
-- `02_bronze_ingestion.ipynb`
-- Screenshot of Catalog Explorer showing all Bronze Delta tables
-- Screenshot of reconciliation query results
-- Screenshot of `DESCRIBE HISTORY` output demonstrating successful repeat-run execution
+- Created one persistent Bronze Delta table for each approved CartFlow source dataset.
+- Preserved source business values in the Bronze layer without applying Silver-level cleaning or standardization.
+- Used format-appropriate ingestion handling for CSV, JSON and Parquet sources.
+- Added consistent technical metadata for source traceability and ingestion auditing.
+- Added a record hash to support record-level identification and reconciliation.
+- Used a controlled full-refresh approach for rerunning the Bronze ingestion notebook.
+- Used source-to-Bronze reconciliation and Delta history as evidence of the ingestion and rerun process.
 
 ---
 
-# 6. AI Transparency Note
+## 4. Blockers / Risks
+
+| Blocker / Risk | Impact | Resolution / Help Needed |
+|---|---|---|
+| No major blockers encountered during Bronze ingestion | No significant impact on the planned Week 4 work | None |
+
+---
+
+## 5. Evidence Added to GitHub
+
+### Notebook
+
+- `notebooks/02_bronze_ingestion.ipynb`
+
+### Screenshots
+
+- `screenshots/week04_01_source_inventory.png`
+- `screenshots/week04_02_bronze_metadata.png`
+- `screenshots/week04_03_bronze_tables.png`
+- `screenshots/week04_04_reconciliation.png`
+- `screenshots/week04_05_rerun_history.png`
+
+### Weekly Log
+
+- `weekly_logs/week04_log.md`
+
+---
+
+## 6. AI Transparency Note
 
 | Question | Response |
-|----------|----------|
-| **Where AI helped** | Claude adapted the Week 4 PageLoop Source-to-Bronze notebook pattern for the CartFlow datasets by generating source views, Bronze-ready views with metadata columns, Delta table creation statements, reconciliation queries, and validation steps. |
-| **What we changed after AI suggestion** | Updated the Volume path, catalog and schema names, Bronze table names, source file names, and dataset-specific column mappings to match the CartFlow project. Reviewed and adjusted the generated Spark SQL before execution. |
-| **What we verified manually** | Executed every notebook cell, verified all Bronze Delta tables were created successfully, confirmed reconciliation counts matched, checked metadata columns, validated Catalog Explorer entries, and confirmed repeat-run behavior using `DESCRIBE HISTORY`. |
-| **What we can explain without AI** | We understand the Bronze layer architecture, why full refresh is used for static batch data, the purpose of ingestion metadata and record hashes, how reconciliation validates successful ingestion, and why Parquet files do not require a manually defined schema. |
+|---|---|
+| **Where AI helped** | AI was used to explain Bronze ingestion patterns, source-format handling, metadata, Delta tables, reconciliation, record hashing, and rerun validation. |
+| **What we changed after AI suggestion** | Updated the source paths, table names, schema handling, metadata fields, and SQL statements to match the CartFlow project requirements. |
+| **What we verified manually** | Reviewed the source files, schemas, Bronze table definitions, metadata columns, reconciliation queries, and rerun/Delta history evidence in the Databricks workspace. |
+| **What we can explain without AI** | We can explain why the Bronze layer preserves raw business values, the purpose of ingestion metadata and record hashes, how source-to-Bronze reconciliation works, and how a controlled rerun is validated. |
 
 ---
 
-# 7. Next Week Preparation
+## 7. Next Week Preparation
 
-- Implement Bronze-to-Silver transformations.
-- Apply data quality validation rules and appropriate data types.
-- Standardize and clean records before creating Silver Delta tables.
-- Generate Silver reconciliation evidence and update project documentation.
-
----
+- Use the completed Bronze Delta tables as the inputs for Week 5.
+- Apply approved type conversions and standardization rules in the Silver layer.
+- Preserve source record identifiers and ingestion lineage during Silver transformations.
+- Validate Silver counts, grain, keys and transformation results.
