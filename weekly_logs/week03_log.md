@@ -62,7 +62,6 @@ The goal of Week 3 was to explore and profile the approved CartFlow source datas
 - `screenshots/week03_02_schemas_counts.png`
 - `screenshots/week03_03_key_uniqueness_domains.png`
 - `screenshots/week03_04_referential_integrity.png`
-- `screenshots/week03_05_fanout_safe_aggregation.png`
 
 ### Weekly Log
 
