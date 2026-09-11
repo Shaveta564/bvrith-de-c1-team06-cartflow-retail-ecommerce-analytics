@@ -56,10 +56,9 @@ The goal of Week 4 was to ingest the five approved CartFlow batch source dataset
 ### Screenshots
 
 - `screenshots/week04_01_source_inventory.png`
-- `screenshots/week04_02_bronze_metadata.png`
-- `screenshots/week04_03_bronze_tables.png`
-- `screenshots/week04_04_reconciliation.png`
-- `screenshots/week04_05_rerun_history.png`
+- `screenshots/week04_02_bronze_tables.png`
+- `screenshots/week04_03_reconciliation.png`
+- `screenshots/week04_04_rerun_history.png`
 
 ### Weekly Log
 
