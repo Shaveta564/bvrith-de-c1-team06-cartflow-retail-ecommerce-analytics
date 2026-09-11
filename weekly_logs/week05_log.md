@@ -58,10 +58,9 @@ The goal of Week 5 was to transform the completed Bronze Delta tables into typed
 ### Screenshots
 
 - `screenshots/week05_01_bronze_readiness.png`
-- `screenshots/week05_02_standardization.png`
-- `screenshots/week05_03_derived_fields.png`
-- `screenshots/week05_04_lineage_validation.png`
-- `screenshots/week05_05_silver_validation.png`
+- `screenshots/week05_02_derived_fields.png`
+- `screenshots/week05_03_lineage_validation.png`
+- `screenshots/week05_04_silver_validation.png`
 
 ### Weekly Log
 
