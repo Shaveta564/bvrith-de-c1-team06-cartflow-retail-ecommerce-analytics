@@ -21,8 +21,7 @@ The goal of Week 6 was to apply the approved CartFlow Data Quality rules to the 
 | Implemented the approved CartFlow DQ rules for Orders, Order Items, Payments, Sellers and Reviews | Nandini | Done | Notebook |
 | Evaluated the approved rules using PASS/FAIL results | Manasa | Done | `week06_02_dq_rule_results.png` |
 | Routed valid records to Trusted Silver and failed records to Quarantine | Shaveta | Done | `week06_03_trusted_quarantine.png` |
-| Added DQ status, failed rule IDs, failure reasons, severity, affected fields and lineage metadata | Nandini | Done | `week06_04_dq_metadata.png` |
-| Validated Trusted and Quarantine reconciliation and zero intersection | Manasa | Done | `week06_05_reconciliation_replay.png` |
+| Validated Trusted and Quarantine reconciliation and zero intersection | Manasa | Done | `week06_04_reconciliation_replay.png` |
 | Documented the correction and replay approach for quarantined records | Shaveta | Done | Notebook |
 
 ---
