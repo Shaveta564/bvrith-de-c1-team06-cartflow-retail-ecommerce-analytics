@@ -20,10 +20,9 @@ The goal of Week 7 was to build the CartFlow Gold layer using only Trusted Silve
 | Read and verified the Week 6 Trusted Silver outputs | Shaveta | Done | `week07_01_trusted_input.png` |
 | Created the approved Gold dimension tables | Nandini | Done | Notebook |
 | Created the approved Gold fact tables | Manasa | Done | `week07_02_gold_dimensions_facts.png` |
-| Built the approved batch Gold aggregation tables | Shaveta | Done | `week07_03_gold_aggregations.png` |
-| Defined and validated the required Gold KPI calculations | Nandini | Done | `week07_04_kpi_validation.png` |
-| Validated Gold grain, keys, measures and reconciliation | Manasa | Done | `week07_05_gold_validation_rerun.png` |
-| Verified controlled rerun behaviour and Gold table stability | Shaveta | Done | `week07_05_gold_validation_rerun.png` |
+| Defined and validated the required Gold KPI calculations | Nandini | Done | `week07_03_kpi_validation.png` |
+| Validated Gold grain, keys, measures and reconciliation | Manasa | Done | `week07_04_gold_validation_rerun.png` |
+| Verified controlled rerun behaviour and Gold table stability | Shaveta | Done | `week07_04_gold_validation_rerun.png` |
 
 ---
 
@@ -64,9 +63,8 @@ The goal of Week 7 was to build the CartFlow Gold layer using only Trusted Silve
 
 - `screenshots/week07_01_trusted_input.png`
 - `screenshots/week07_02_gold_dimensions_facts.png`
-- `screenshots/week07_03_gold_aggregations.png`
-- `screenshots/week07_04_kpi_validation.png`
-- `screenshots/week07_05_gold_validation_rerun.png`
+- `screenshots/week07_03_kpi_validation.png`
+- `screenshots/week07_04_gold_validation_rerun.png`
 
 ### Weekly Log
 
