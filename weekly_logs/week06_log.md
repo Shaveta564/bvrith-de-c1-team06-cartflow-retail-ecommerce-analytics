@@ -66,8 +66,7 @@ The goal of Week 6 was to apply the approved CartFlow Data Quality rules to the 
 - `screenshots/week06_01_candidate_readiness.png`
 - `screenshots/week06_02_dq_rule_results.png`
 - `screenshots/week06_03_trusted_quarantine.png`
-- `screenshots/week06_04_dq_metadata.png`
-- `screenshots/week06_05_reconciliation_replay.png`
+- `screenshots/week06_04_reconciliation_replay.png`
 
 ### Weekly Log
 
