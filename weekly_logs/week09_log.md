@@ -54,7 +54,7 @@ The work focused on refining the Commerce Overview page, creating Seller and Cat
 - Kept the five Gold summary tables independent because their declared business grains and keys are different.
 - Did not introduce unsafe relationships between the independent Gold tables simply to force slicer cross-filtering.
 - Refined Page 1 and added a Sales Date slicer using `agg_sales_daily[sales_date]`.
-- Verified that the Sales Date slicer changes the visuals that are supported by the `agg_sales_daily` source while independent Gold-table visuals remain unaffected.
+- Verified that the Sales Date slicer changes the visuals supported by the `agg_sales_daily` source while independent Gold-table visuals remain unaffected.
 - Created Page 2 for seller and category analysis using the approved seller and category Gold tables.
 - Created Page 3 for fulfilment and payment analysis using the approved delivery and payment Gold tables.
 - Used existing approved Gold fields and measures rather than introducing unsupported KPI definitions.
@@ -101,8 +101,13 @@ The updated PBIX contains:
 ### Screenshots
 
 - `screenshots/week09_01_final_model.png`
+- `screenshots/week09_02_page1_commerce_overview.png`
+- `screenshots/week09_03_page2_seller_category.png`
 - `screenshots/week09_04_filter_interaction.png`
-- Other genuine Week 9 dashboard and validation screenshots
+- `screenshots/week09_05_page3_fulfilment_payment.png`
+- `screenshots/week09_06_filtered_gold_reconciliation.png`
+- `screenshots/week09_07_payment_reconciliation.png`
+- `screenshots/week09_08_top_seller_validation.png`
 
 ### Weekly Log
 
@@ -110,7 +115,7 @@ The updated PBIX contains:
 
 ### Notebook
 
-- `notebooks/06_powerbi_export.ipynb` — included/updated only if changes were made to the notebook during Week 9.
+- `notebooks/06_powerbi_export.ipynb` — included if changes were made to the notebook during Week 9.
 
 ---
 
