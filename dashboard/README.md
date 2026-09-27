@@ -1,9 +1,9 @@
 # CartFlow Power BI Dashboard
 
-## Week 8 — Commerce Overview
+## Week 9 — Dashboard Refinement, Interactions and Insights
 
-This folder contains the first working Power BI dashboard for the CartFlow
-Week 8 Gold-to-Power BI hand-off.
+This folder contains the refined Power BI dashboard for the CartFlow
+Week 9 Gold-to-Power BI dashboard refinement.
 
 Expected file:
 
@@ -36,72 +36,117 @@ No relationships were created between the summary tables merely because
 some field names are similar. This preserves the declared Gold grain of
 each table and avoids unsafe cross-table joins.
 
-## Main KPIs and Measures
+The Week 9 refinement did not change the approved Gold model structure.
 
-The Commerce Overview dashboard contains:
+## Dashboard Pages
+
+### Page 1 — Commerce Overview
+
+The page provides a high-level view of CartFlow commerce performance.
+
+Visuals include:
 
 - Total Orders
 - Total GMV
 - Average Order Value
 - Non-Cancelled Orders
 - Cancellation Rate
-- On-Time Delivery Rate
-- Payment Reconciliation Rate
-
-The On-Time Delivery Rate measure is calculated using on-time orders
-divided by delivery-eligible orders.
-
-## Dashboard Page
-
-### Page 1 — Commerce Overview
-
-The page contains:
-
-- KPI cards for commerce and order health
 - GMV Trend
 - Orders Trend
 - GMV by Category
 - On-Time Delivery Rate
 - Payment Reconciliation Rate
+- Sales Date slicer
 
-The dashboard is organized around business questions rather than creating
-one visual for each Gold table.
+The Sales Date slicer was tested using the full period and a filtered
+period. Sales-related visuals responded to the filter as expected.
+
+### Page 2 — Seller and Category Analysis
+
+The page focuses on seller performance, category sales and review quality.
+
+Visuals include:
+
+- GMV by Category
+- Top Sellers by Order Count
+- Top Sellers by GMV
+- Seller Average Review Score
+
+The Top Sellers by Order Count visual was reconciled against
+`agg_seller_performance`.
+
+### Page 3 — Fulfilment and Payment
+
+The page focuses on delivery performance and payment/review quality.
+
+Visuals include:
+
+- Average Delivery Delay Trend
+- On-Time Delivery Rate
+- Payment Reconciliation Rate
+- Reviewed Order Coverage
+
+The payment reconciliation value was reconciled against
+`agg_payment_review`.
+
+## Main Measures and Fields
+
+The dashboard uses approved Gold fields and existing measures.
+
+Important measures and fields include:
+
+- `total_orders`
+- GMV
+- Average Order Value
+- Cancellation Rate
+- `on_time_orders`
+- `delivery_eligible_orders`
+- On-Time Delivery Rate
+- `reconciled_orders`
+- `complete_coverage_orders`
+- `payment_reconciliation_rate`
+- `reviewed_order_coverage`
+- `seller_id`
+- `order_count`
+- `average_review_score`
+
+The On-Time Delivery Rate is calculated using on-time orders divided by
+delivery-eligible orders.
+
+## Interaction and Filter Behavior
+
+The Page 1 Sales Date slicer was tested using:
+
+**01-01-2025 → 01-12-2025**
+
+and the filtered period:
+
+**01-06-2025 → 01-12-2025**
+
+During testing:
+
+- Total Orders changed from approximately 98K to 54K.
+- Total GMV changed from approximately $148.32M to $82.05M.
+- Average Order Value changed from approximately $1.51K to $1.52K.
+- GMV Trend responded to the filter.
+- Orders Trend responded to the filter.
+- Visuals based on independent Gold tables remained unchanged.
+
+The independent behavior is intentional and avoids unsafe relationships
+between Gold summary tables.
+
+The final dashboard was returned to the full date range before completion.
 
 ## Validation and Reconciliation
 
-Selected dashboard values were reconciled against their owning Gold source.
+Selected dashboard values were reconciled against their owning Gold
+sources.
 
-For example:
+### Total Orders
 
-- Total Orders on the dashboard was reconciled against
-  `SUM(agg_sales_daily[total_orders])`.
-- The reconciliation value matched the dashboard Total Orders value.
+Gold validation:
 
-The reconciliation evidence is stored in:
-
-`screenshots/`
-
-## Refresh and Data Connection
-
-The Power BI dashboard uses the approved Gold hand-off as its source.
-
-Future refreshes should continue to use the governed Gold outputs and
-should not introduce raw or Silver detail sources.
-
-## Evidence
-
-Week 8 evidence screenshots are stored under:
-
-`screenshots/`
-
-The evidence includes the Power BI model, dashboard page, and selected
-measure reconciliation.
-
-## Week 8 Boundary
-
-This PBIX represents the first working Gold-only Power BI dashboard and
-model for Week 8.
-
-Further visual refinement, interaction testing, presentation improvements,
-and evidence-backed dashboard insights belong to the Week 9 refinement
-stage.
+```sql
+SELECT
+    SUM(total_orders) AS gold_total_orders
+FROM agg_sales_daily;
