@@ -1,46 +1,35 @@
 # Structured Streaming Design
 
 **Week:** 10  
-**Purpose:** Explain the streaming simulation.
+**Project:** CartFlow  
+**Purpose:** Document the controlled Structured Streaming simulation implemented in Databricks using the approved order-status JSON drops.
 
 ---
 
 ## 1. Streaming Scenario
 
-Describe the event flow.
+Week 10 simulates order-status events arriving as controlled JSON file drops.
 
-Example:
+Two approved event files are used:
 
-> New JSON event files arrive in a streaming input path. Databricks Auto Loader detects the files, Structured Streaming processes them, and the output is written to a Streaming Bronze table.
+- `order_status_drop_01.json`
+- `order_status_drop_02.json`
 
----
+Databricks Auto Loader detects the JSON files from the streaming input path. Structured Streaming processes the incoming records using an explicit event schema and a stable checkpoint.
 
-## 2. Event Source
+The streaming flow is:
 
-| Item | Description |
-|---|---|
-| Event file format | JSON |
-| Input path | `/Volumes/workspace/default/<project_name>/streaming_input/` |
-| Processing method | Auto Loader / Structured Streaming |
-| Output table | `bronze_streaming_events` |
-| Checkpoint path | `/Volumes/workspace/default/<project_name>/checkpoints/...` |
-
----
-
-## 3. Near-Real-Time Metric
-
-Define one simple live metric.
-
-Example:
-
-| Metric | Formula | Use |
-|---|---|---|
-| Event count by severity | Count events grouped by severity | Shows alert pressure |
-
----
-
-## 4. Limitations
-
-- This is a student streaming simulation, not a production event platform.
-- Kafka is documented as production architecture awareness only.
-- Streaming events are synthetic and educational.
+```text
+Order Status JSON Drops
+          ↓
+Databricks Auto Loader
+          ↓
+Streaming Bronze
+          ↓
+Quality Validation and Routing
+      ↙              ↘
+   Trusted         Quarantine
+      ↓                ↓
+   Audit / Ledgers / Validation
+          ↓
+   Recovery and Idempotency Checks
