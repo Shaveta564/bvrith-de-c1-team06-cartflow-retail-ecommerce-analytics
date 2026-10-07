@@ -5,9 +5,14 @@
 This folder contains the refined Power BI dashboard for the CartFlow
 Week 9 Gold-to-Power BI dashboard refinement.
 
+The Week 9 dashboard is the refined continuation of the Week 8
+Gold-only Power BI hand-off.
+
 Expected file:
 
 `dashboard/powerbi_dashboard.pbix`
+
+---
 
 ## Power BI Source Rule
 
@@ -16,31 +21,65 @@ Power BI uses approved Gold outputs only.
 The dashboard is not connected directly to raw, Bronze, Silver Candidate,
 Trusted Silver detail, or Quarantine data.
 
+The approved Gold sources used by the dashboard are:
+
+- `agg_sales_daily`
+- `agg_seller_performance`
+- `agg_category_sales`
+- `agg_delivery_delay`
+- `agg_payment_review`
+
+---
+
 ## Gold Sources
 
 The Power BI model uses the following approved Gold batch-summary tables:
 
-| Gold Table | Grain |
-|---|---|
-| `agg_sales_daily` | One row per sales date |
-| `agg_seller_performance` | One row per seller |
-| `agg_category_sales` | One row per month + category |
-| `agg_delivery_delay` | One row per purchase date + customer state |
-| `agg_payment_review` | One row per currency |
+| Gold Table | Grain | Main Dashboard Purpose |
+|---|---|---|
+| `agg_sales_daily` | One row per sales date | Orders, GMV, AOV, cancellation and sales trends |
+| `agg_seller_performance` | One row per seller | Seller order count, seller GMV and review performance |
+| `agg_category_sales` | One row per month + category | Category sales and GMV analysis |
+| `agg_delivery_delay` | One row per purchase date + customer state | Delivery performance and on-time delivery |
+| `agg_payment_review` | One row per currency | Payment reconciliation and review coverage |
+
+The Gold tables retain their declared reporting grains.
+
+---
 
 ## Model and Relationships
 
-The five Gold summary tables are kept as independent tables.
+The five approved Gold summary tables retain their declared reporting
+grains and are not directly joined to one another merely because some
+field names are similar.
 
-No relationships were created between the summary tables merely because
-some field names are similar. This preserves the declared Gold grain of
-each table and avoids unsafe cross-table joins.
+A shared `DimDate` table is used for valid date-based filtering.
 
-The Week 9 refinement did not change the approved Gold model structure.
+The approved date relationships are:
+
+- `DimDate[Date]` → `agg_sales_daily[sales_date]`
+- `DimDate[Date]` → `agg_delivery_delay[purchase_date]`
+
+The following Gold tables remain independent because no safe shared
+filtering relationship was required for the dashboard:
+
+- `agg_category_sales`
+- `agg_seller_performance`
+- `agg_payment_review`
+
+This model preserves the declared Gold grains and avoids unsafe
+cross-table joins.
+
+The Week 9 refinement did not change the approved Gold business logic
+or introduce unsafe relationships merely to force slicer behavior.
+
+---
 
 ## Dashboard Pages
 
-### Page 1 — Commerce Overview
+The final dashboard contains two pages.
+
+### Page 1 — Commerce Performance
 
 The page provides a high-level view of CartFlow commerce performance.
 
@@ -51,19 +90,24 @@ Visuals include:
 - Average Order Value
 - Non-Cancelled Orders
 - Cancellation Rate
-- GMV Trend
-- Orders Trend
-- GMV by Category
 - On-Time Delivery Rate
 - Payment Reconciliation Rate
+- GMV Trend Over Time
+- Monthly Order Volume
 - Sales Date slicer
+
+The page is designed to provide an overall view of orders, sales value,
+cancellations, delivery performance and payment reconciliation.
 
 The Sales Date slicer was tested using the full period and a filtered
 period. Sales-related visuals responded to the filter as expected.
 
-### Page 2 — Seller and Category Analysis
+---
 
-The page focuses on seller performance, category sales and review quality.
+### Page 2 — Seller and Category Performance
+
+The page focuses on seller performance, category sales and customer
+review quality.
 
 Visuals include:
 
@@ -72,22 +116,13 @@ Visuals include:
 - Top Sellers by GMV
 - Seller Average Review Score
 
+The page provides a focused view of category contribution, seller
+performance and seller review quality.
+
 The Top Sellers by Order Count visual was reconciled against
 `agg_seller_performance`.
 
-### Page 3 — Fulfilment and Payment
-
-The page focuses on delivery performance and payment/review quality.
-
-Visuals include:
-
-- Average Delivery Delay Trend
-- On-Time Delivery Rate
-- Payment Reconciliation Rate
-- Reviewed Order Coverage
-
-The payment reconciliation value was reconciled against
-`agg_payment_review`.
+---
 
 ## Main Measures and Fields
 
@@ -113,40 +148,11 @@ Important measures and fields include:
 The On-Time Delivery Rate is calculated using on-time orders divided by
 delivery-eligible orders.
 
-## Interaction and Filter Behavior
+The Power BI measure is:
 
-The Page 1 Sales Date slicer was tested using:
-
-**01-01-2025 → 01-12-2025**
-
-and the filtered period:
-
-**01-06-2025 → 01-12-2025**
-
-During testing:
-
-- Total Orders changed from approximately 98K to 54K.
-- Total GMV changed from approximately $148.32M to $82.05M.
-- Average Order Value changed from approximately $1.51K to $1.52K.
-- GMV Trend responded to the filter.
-- Orders Trend responded to the filter.
-- Visuals based on independent Gold tables remained unchanged.
-
-The independent behavior is intentional and avoids unsafe relationships
-between Gold summary tables.
-
-The final dashboard was returned to the full date range before completion.
-
-## Validation and Reconciliation
-
-Selected dashboard values were reconciled against their owning Gold
-sources.
-
-### Total Orders
-
-Gold validation:
-
-```sql
-SELECT
-    SUM(total_orders) AS gold_total_orders
-FROM agg_sales_daily;
+```DAX
+On-Time Delivery Rate =
+DIVIDE(
+    SUM(agg_delivery_delay[on_time_orders]),
+    SUM(agg_delivery_delay[delivery_eligible_orders])
+)
